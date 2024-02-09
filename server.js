@@ -24,6 +24,17 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Gestion des requêtes OPTIONS pour l'endpoint /submit-form
+app.options('/submit-form', (req, res) => {
+  res.header('Access-Control-Allow-Methods', 'POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.sendStatus(200);
+});
+
+// Gestion de la route racine
+app.get('/', (req, res) => {
+  res.send('Bienvenue sur le serveur backend');
+});
 // Endpoint pour recevoir les données du form
 app.post('/submit-form', (req, res) => {
   const formData = req.body;
@@ -49,18 +60,6 @@ app.post('/submit-form', (req, res) => {
     }
     res.status(200).send('Formulaire soumis avec succès !');
   });
-});
-
-// Gestion des requêtes OPTIONS pour l'endpoint /submit-form
-app.options('/submit-form', (req, res) => {
-  res.header('Access-Control-Allow-Methods', 'POST');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  res.sendStatus(200);
-});
-
-// Gestion de la route racine
-app.get('/', (req, res) => {
-  res.send('Bienvenue sur le serveur backend');
 });
 
 // Démarrage du serveur
