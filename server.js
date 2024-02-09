@@ -47,7 +47,7 @@ app.post('/submit-form', (req, res) => {
   });
 });
 
-// Démarrage du serveur
+// Démarrage du serveurs
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Serveur en écoute sur le port ${PORT}`);
