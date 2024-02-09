@@ -51,6 +51,13 @@ app.post('/submit-form', (req, res) => {
   });
 });
 
+// Gestion des requêtes OPTIONS pour l'endpoint /submit-form
+app.options('/submit-form', (req, res) => {
+  res.header('Access-Control-Allow-Methods', 'POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.sendStatus(200);
+});
+
 // Gestion de la route racine
 app.get('/', (req, res) => {
   res.send('Bienvenue sur le serveur backend');
