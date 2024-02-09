@@ -51,7 +51,12 @@ app.post('/submit-form', (req, res) => {
   });
 });
 
-// Démarrage du serveurs
+// Gestion de la route racine
+app.get('/', (req, res) => {
+  res.send('Bienvenue sur le serveur backend');
+});
+
+// Démarrage du serveur
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Serveur en écoute sur le port ${PORT}`);
