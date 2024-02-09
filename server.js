@@ -24,7 +24,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Endpoint pour recevoir les données du formulaire
+// Endpoint pour recevoir les données du form
 app.post('/submit-form', (req, res) => {
   const formData = req.body;
 
