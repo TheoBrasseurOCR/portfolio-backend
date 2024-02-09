@@ -9,7 +9,11 @@ const app = express();
 app.use(bodyParser.json());
 
 // Utiliser le middleware cors pour accepter les requêtes POST
-app.use(cors());
+const corsOptions = {
+  origin: 'https://mon-portfolio-sepia.vercel.app',
+};
+
+app.use(cors(corsOptions));
 
 // Configuration pour l'envoi d'e-mails avec nodemailer
 const transporter = nodemailer.createTransport({
